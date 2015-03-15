@@ -25,6 +25,14 @@ def sorted_count_hash(hash)
   end
 end
 
+File.open('./all_nature_codes.json', 'w') do |f|
+  f.write JSON.pretty_generate(nature_codes_to_descriptions.keys.sort)
+end
+
+File.open('./all_incident_descriptions.json', 'w') do |f|
+  f.write JSON.pretty_generate(descriptions_to_nature_codes.keys.sort)
+end
+
 File.open('./possible_descriptions_given_nature_code.json', 'w') do |f|
   f.write JSON.pretty_generate(sorted_count_hash(nature_codes_to_descriptions))
 end
