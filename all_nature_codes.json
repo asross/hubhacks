@@ -198,7 +198,6 @@
   "PRSCRM",
   "PRWLER",
   "PSHOT",
-  "Prscrm",
   "RAPE",
   "RAPEIP",
   "RAPRPT",
@@ -266,13 +265,5 @@
   "VIDEOC",
   "VIOMVL",
   "VIORDR",
-  "VNDINV",
-  "aod",
-  "cd11",
-  "cd16",
-  "cd9",
-  "fight",
-  "reqp",
-  "ts",
-  "unkems"
+  "VNDINV"
 ]

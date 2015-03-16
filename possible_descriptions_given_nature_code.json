@@ -376,7 +376,7 @@
   "AOD": {
     "Service": 125,
     "MedAssist": 122,
-    "SIMPLE ASSAULT": 42,
+    "SIMPLE ASSAULT": 43,
     "InvProp": 28,
     "InvPer": 27,
     "OTHER LARCENY": 27,
@@ -848,9 +848,9 @@
   },
   "CD11": {
     "SearchWarr": 515,
-    "Service": 417,
+    "Service": 421,
     "DRUG CHARGES": 372,
-    "Arrest": 277,
+    "Arrest": 279,
     "WEAPONS CHARGE": 84,
     "InvPer": 31,
     "PRISON": 24,
@@ -913,7 +913,7 @@
     "WEAPONS CHARGE": 1
   },
   "CD16": {
-    "VAL": 132,
+    "VAL": 134,
     "TOWED": 82,
     "VANDALISM": 1,
     "DRUG CHARGES": 1,
@@ -1196,20 +1196,20 @@
     "SIMPLE ASSAULT": 14,
     "Arrest": 11,
     "PRISON": 9,
+    "32GUN": 8,
     "MVAcc": 7,
-    "32GUN": 7,
     "OTHER LARCENY": 6,
-    "PropFound": 5,
     "FRAUD": 5,
-    "RESIDENTIAL BURGLARY": 5,
+    "PropFound": 5,
     "PropLost": 5,
+    "RESIDENTIAL BURGLARY": 5,
     "Argue": 4,
     "AGGRAVATED ASSAULT": 4,
     "ROBBERY": 3,
-    "LARCENY FROM MOTOR VEHICLE": 3,
     "CRIMES AGAINST CHILDREN": 3,
-    "TRESPASS": 2,
+    "LARCENY FROM MOTOR VEHICLE": 3,
     "VANDALISM": 2,
+    "TRESPASS": 2,
     "DISORDERLY": 2,
     "PersMiss": 2,
     "PersLoc": 2,
@@ -1641,7 +1641,7 @@
     "ROBBERY": 1
   },
   "FIGHT": {
-    "SIMPLE ASSAULT": 1442,
+    "SIMPLE ASSAULT": 1443,
     "AGGRAVATED ASSAULT": 388,
     "Argue": 264,
     "InvPer": 263,
@@ -3262,7 +3262,7 @@
     "InvPer": 1
   },
   "PRSCRM": {
-    "MedAssist": 68,
+    "MedAssist": 69,
     "InvPer": 31,
     "Argue": 30,
     "SIMPLE ASSAULT": 22,
@@ -3309,9 +3309,6 @@
     "Gather": 1,
     "VAL": 1,
     "FRAUD": 1
-  },
-  "Prscrm": {
-    "MedAssist": 1
   },
   "RAPE": {
     "InvPer": 6,
@@ -3467,7 +3464,7 @@
     "VANDALISM": 1
   },
   "REQP": {
-    "MedAssist": 899,
+    "MedAssist": 900,
     "SIMPLE ASSAULT": 243,
     "InvProp": 229,
     "Hazardous": 154,
@@ -4153,7 +4150,7 @@
     "DISORDERLY": 2
   },
   "TS": {
-    "VAL": 726,
+    "VAL": 727,
     "DRUG CHARGES": 208,
     "Service": 25,
     "OTHER": 23,
@@ -4305,7 +4302,7 @@
     "Manslaug": 1
   },
   "UNKEMS": {
-    "MedAssist": 306,
+    "MedAssist": 307,
     "DEATH INVESTIGATION": 95,
     "InvPer": 9,
     "SIMPLE ASSAULT": 8,
@@ -4486,30 +4483,5 @@
   "VNDINV": {
     "VANDALISM": 6,
     "LARCENY FROM MOTOR VEHICLE": 2
-  },
-  "aod": {
-    "SIMPLE ASSAULT": 1
-  },
-  "cd11": {
-    "Service": 4,
-    "Arrest": 2
-  },
-  "cd16": {
-    "VAL": 2
-  },
-  "cd9": {
-    "32GUN": 1
-  },
-  "fight": {
-    "SIMPLE ASSAULT": 1
-  },
-  "reqp": {
-    "MedAssist": 1
-  },
-  "ts": {
-    "VAL": 1
-  },
-  "unkems": {
-    "MedAssist": 1
   }
 }

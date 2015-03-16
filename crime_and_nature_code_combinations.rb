@@ -10,7 +10,7 @@ nature_codes_to_descriptions = Hash.new { |h, nature_code| h[nature_code] = Hash
 descriptions_to_nature_codes = Hash.new { |h, description| h[description] = Hash.new { |h, code| h[code] = 0 } }
 
 data.each do |row|
-  nature_code = row[9].strip
+  nature_code = row[9].strip.upcase
   description = row[10].strip
   crime_code = row[11].strip
 
