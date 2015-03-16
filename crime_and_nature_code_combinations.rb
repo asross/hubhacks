@@ -44,3 +44,15 @@ end
 File.open('./crime_code_description_mapping.json', 'w') do |f|
   f.write JSON.pretty_generate(crime_codes_to_descriptions)
 end
+
+data_from_911 = JSON.parse(File.read('./boston911Calls.json'))['data']
+all_nature_codes = nature_codes_to_descriptions.keys.sort
+nature_code_dictionary_from_911 = Hash[data_from_911.map{|row| [row[11], row[13]] }]
+
+nature_code_dictionary = all_nature_codes.each_with_object({}) do |code, h|
+  h[code] = nature_code_dictionary_from_911.fetch(code, 'no definition found')
+end
+
+File.open('./natureCodeMeaningsFrom911Data.json', 'w') do |f|
+  f.write JSON.pretty_generate(nature_code_dictionary)
+end
