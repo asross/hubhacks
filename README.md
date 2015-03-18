@@ -6,8 +6,8 @@ Add scratchwork, intermediate data, brainstorming documents, and visualizations 
 
 ## Googledocs
 
-[brainstorming document](https://docs.google.com/document/d/1nv6aqtugbBMvJW6E9AVY_kZdfar38MeNPhFWzxxyhlk/edit)
-[official hubhacks data guide](https://docs.google.com/a/vermonster.com/document/d/1Mx4_MttMbTHDuODlsh8fS3NeSt3XWUbyr3w3HdJp7No/edit#heading=h.gjdgxs)
+- [brainstorming document](https://docs.google.com/document/d/1nv6aqtugbBMvJW6E9AVY_kZdfar38MeNPhFWzxxyhlk/edit)
+- [official hubhacks data guide](https://docs.google.com/a/vermonster.com/document/d/1Mx4_MttMbTHDuODlsh8fS3NeSt3XWUbyr3w3HdJp7No/edit#heading=h.gjdgxs)
 
 ## All hubhacks datasets
 
