@@ -4,14 +4,11 @@ Let's work together on putting together a great visualization for the [Hubhacks 
 
 Add scratchwork, intermediate data, brainstorming documents, and visualizations or links to visualizations here.
 
-## Googledocs
+## Useful links
 
 - [brainstorming document](https://docs.google.com/document/d/1nv6aqtugbBMvJW6E9AVY_kZdfar38MeNPhFWzxxyhlk/edit)
 - [official hubhacks data guide](https://docs.google.com/a/vermonster.com/document/d/1Mx4_MttMbTHDuODlsh8fS3NeSt3XWUbyr3w3HdJp7No/edit#heading=h.gjdgxs)
-
-## All hubhacks datasets
-
-[Look here](https://data.cityofboston.gov/browse?q=hubhacks&sortBy=relevance&utf8=%E2%9C%93)
+- [all hubhacks datasets](https://data.cityofboston.gov/browse?q=hubhacks&sortBy=relevance&utf8=%E2%9C%93)
 
 ## Accessing crime data
 
