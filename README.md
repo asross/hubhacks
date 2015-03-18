@@ -4,6 +4,10 @@ Let's work together on putting together a great visualization for the [Hubhacks 
 
 Add scratchwork, intermediate data, brainstorming documents, and visualizations or links to visualizations here.
 
+## All hubhacks datasets
+
+[Look here](https://data.cityofboston.gov/browse?q=hubhacks&sortBy=relevance&utf8=%E2%9C%93)
+
 ## Accessing crime data
 
 ### Crime incidents
