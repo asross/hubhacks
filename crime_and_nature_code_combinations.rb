@@ -2,6 +2,7 @@ require 'json'
 require 'pry'
 require 'set'
 require 'net/http'
+require 'active_support/all'
 
 data = JSON.parse(File.read('./bostonCrimeIncidents.json'))['data']
 
