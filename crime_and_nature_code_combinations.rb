@@ -3,17 +3,23 @@ require 'pry'
 require 'set'
 require 'net/http'
 require 'active_support/all'
+require 'csv'
 
-data = JSON.parse(File.read('./bostonCrimeIncidents.json'))['data']
+incident_dataset = JSON.parse(File.read('./bostonCrimeIncidents.json'))
+incident_data = incident_dataset['data']
 
 crime_codes_to_descriptions = {}
 nature_codes_to_descriptions = Hash.new { |h, nature_code| h[nature_code] = Hash.new { |h, desc| h[desc] = 0 } }
 descriptions_to_nature_codes = Hash.new { |h, description| h[description] = Hash.new { |h, code| h[code] = 0 } }
 
-data.each do |row|
-  nature_code = row[9].strip.upcase
-  description = row[10].strip
-  crime_code = row[11].strip
+def ncode(row); row[9].strip.upcase; end
+def cdesc(row); row[10].strip; end
+def ccode(row); row[11].strip; end
+
+incident_data.each do |row|
+  nature_code = ncode(row)
+  description = cdesc(row)
+  crime_code = ccode(row)
 
   crime_codes_to_descriptions[crime_code] = description
   nature_codes_to_descriptions[nature_code][description] += 1
@@ -56,4 +62,18 @@ end
 
 File.open('./natureCodeMeaningsFrom911Data.json', 'w') do |f|
   f.write JSON.pretty_generate(nature_code_dictionary)
+end
+
+all_incident_headers = incident_dataset['meta']['view']['columns'].map { |col| col['name'].gsub(/\W/,'').titleize }[0..-2] + ['Latitude', 'Longitude', 'Incident Nature']
+desired_incident_headers = all_incident_headers - ['Sid', 'Id', 'Position', 'Created At', 'Updated At', 'Created Meta', 'Updated Meta', 'Meta', 'X', 'Y', 'Ucrpart', 'Year', 'Month', 'Day Week', 'Compnos', 'Xstreetname']
+
+CSV.open('./mungedIncidentData.csv', 'w', headers: desired_incident_headers, write_headers: true) do |csv|
+  incident_data.each do |row|
+    if human_readable_nature_code = nature_code_dictionary_from_911[ncode(row)]
+      _, latitude, longitude, __, ___ = row.last
+      full_row = row[0..-2] + [latitude, longitude, human_readable_nature_code]
+      full_row_hash = Hash[all_incident_headers.zip(full_row)]
+      csv << full_row_hash.values_at(*desired_incident_headers)
+    end
+  end
 end
