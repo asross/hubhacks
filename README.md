@@ -19,8 +19,7 @@ Our project utilizes:
     * [All biking data, flattened with path indexes](https://s3-us-west-2.amazonaws.com/hubhacks/flattened_cycling_data_with_indexes.csv)
     * [All biking data coordinates with street names]()
 - The [Boston Area Research Initiative](http://www.bostonarearesearchinitiative.net/data-library.php?dvn_subpage=/faces/study/StudyPage.xhtml?globalId=doi:10.7910/DVN/24713&studyListingIndex=0_793b56b69639262a4ff832a1af7c)'s Bicycle Collision dataset (between 2009 and 2012)
-    * [Raw dataset]()
-    * [Geocoded]()
+    * [Geocoded](https://s3-us-west-2.amazonaws.com/hubhacks/bike_collision_geo.csv)
 - (Insert source here) dataset on bike lanes and when they were added
     * [Link to dataset]()
 
