@@ -8,6 +8,8 @@ We are using [Tableau](http://www.tableau.com/) for the visualizations. In this 
 * adding links to processed data for importing into Tableau
 * adding graph screenshots and ideas for integrating the graphs into a flow, if it's useful
 
+Take a look at our [Trello board](https://trello.com/b/ujpMKWdD/hubhacks), too.
+
 ## Our Project
 
 Our project utilizes:
