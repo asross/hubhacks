@@ -25,10 +25,12 @@ CSV.open('./combined-path-route-and-collision-data.csv', 'w', headers: headers, 
     output << row_data.values_at(*headers)
   end
 
-  collisions.each do |row|
+  base_collision_id = bikepaths.max_by {|p| p['path_id'].to_i }['path_id'].to_i + 1
+
+  collisions.each_with_index do |row, i|
     row_data = {
       'Data Type'   => 'Collision',
-      'Path Id'     => row['ID'],
+      'Path Id'     => base_collision_id + i,
       'Step'        => '1',
       'Year'        => row['YEAR'],
       'Month'       => row['DATE'].to_s.split('/')[1],
@@ -39,13 +41,14 @@ CSV.open('./combined-path-route-and-collision-data.csv', 'w', headers: headers, 
     output << row_data.values_at(*headers)
   end
 
+  base_route_id = base_collision_id + collisions.size + 1
 
-  routes.group_by { |row| row['Route ID'] }.each do |route_id, rows|
+  routes.group_by { |row| row['Route ID'] }.each_with_index do |(route_id, rows), route_no|
     rows.each_with_index do |row, i|
       time = Time.parse(row['Datetime'])
       row_data = {
         'Data Type' => 'Runkeeper Route',
-        'Path Id' => row['Route ID'],
+        'Path Id' => base_route_id + route_no,
         'Step' => i + 1,
         'Year' => time.year,
         'Month' => time.month,
