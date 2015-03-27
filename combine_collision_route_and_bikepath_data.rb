@@ -87,12 +87,16 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
     end
 
     # remove the beginning and end if they are not in Boston
-    while route_data.length > 0 && !city_whitelist.include?(route_data[0]['City Name'])
-      route_data.shift
+    unless city_whitelist.include?(route_data.map{|r| r['City Name']}.compact.first)
+      while route_data.length > 0 && !city_whitelist.include?(route_data[0]['City Name'])
+        route_data.shift
+      end
     end
 
-    while route_data.length > 0 && !city_whitelist.include?(route_data[-1]['City Name'])
-      route_data.pop
+    unless city_whitelist.include?(route_data.map{|r| r['City Name']}.compact.last)
+      while route_data.length > 0 && !city_whitelist.include?(route_data[-1]['City Name'])
+        route_data.pop
+      end
     end
 
     route_data.each do |row_data|
