@@ -85,8 +85,10 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
     # skip unless at least some of the route is inside Boston
     next unless route_data.any? { |row_data| row_data['Street Name'].to_s.length > 0 }
 
+    in_boston_yet = false
     route_data.each do |row_data|
-      output << row_data.values_at(*headers)
+      in_boston_yet ||= row_data['Street Name']
+      output << row_data.values_at(*headers) if in_boston_yet
     end
   end
 end
