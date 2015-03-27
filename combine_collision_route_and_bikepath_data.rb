@@ -59,6 +59,8 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
     output << row_data.values_at(*headers)
   end
 
+  city_whitelist = %w(Boston Brookline Brighton Jamaica)
+
   base_route_id = base_collision_id + collisions.size + 1
 
   routes.select { |row| Time.parse(row['Datetime']).year <= 2012 }.group_by { |row| row['Route ID'] }.each_with_index do |(route_id, rows), route_no|
@@ -67,7 +69,8 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
     rows.each_with_index do |row, i|
       utc_time = Time.parse(row['Datetime'])
       est_time = Time.at(utc_time.to_f - 4*3600)
-      street_name = row['Address'].to_s[/^(?:\d+\s)?([a-zA-Z0-9 ]+), Boston/, 1]
+      street_name = row['Address'].to_s[/^(?:\d+\s)?([a-zA-Z0-9 ]+), ([a-zA-Z]+)/, 1]
+      city_name = row['Address'].to_s[/^(?:\d+\s)?([a-zA-Z0-9 ]+), ([a-zA-Z]+)/, 2]
 
       route_data << {
         'Data Type' => 'Runkeeper Route',
@@ -77,18 +80,23 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
         'Month' => est_time.month,
         'Hour'  => est_time.hour,
         'Street Name' => street_name,
+        'City Name' => city_name,
         'Latitude' => row['Latitude'],
         'Longitude' => row['Longitude']
       }
     end
 
-    # skip unless at least some of the route is inside Boston
-    next unless route_data.any? { |row_data| row_data['Street Name'].to_s.length > 0 }
+    # remove the beginning and end if they are not in Boston
+    while route_data.length > 0 && !city_whitelist.include?(route_data[0]['City Name'])
+      route_data.shift
+    end
 
-    in_boston_yet = false
+    while route_data.length > 0 && !city_whitelist.include?(route_data[-1]['City Name'])
+      route_data.pop
+    end
+
     route_data.each do |row_data|
-      in_boston_yet ||= row_data['Street Name']
-      output << row_data.values_at(*headers) if in_boston_yet
+      output << row_data.values_at(*headers)
     end
   end
 end
