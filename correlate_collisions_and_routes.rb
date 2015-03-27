@@ -67,11 +67,12 @@ CSV.open("events_by_street.csv", "w") do |csv|
 
     path.each do |point|
       if point['Address'].to_s =~ /^(?:\d+\s)?([a-zA-Z0-9 ]+), Boston/
-        unless streets_on_route.include? $1
-          streets_on_route << $1
+        street = $1
+        unless streets_on_route.include? street
+          streets_on_route << street
           utc_time = Time.parse(point['Datetime'])
           est_time = Time.at(utc_time.to_f - 4*3600)
-          csv << [$1, 'Trip', est_time.to_s.sub(/\s-\d\d\d\d$/, '')]
+          csv << [street, 'Trip', est_time.to_s.sub(/\s-\d\d\d\d$/, '')]
         end
       end
     end
