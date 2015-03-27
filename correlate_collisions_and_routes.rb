@@ -45,7 +45,7 @@ class Array
 end
 
 def latlng(route)
-  route.to_h.values_at('Latitude', 'Longitude')
+  route.to_hash.values_at('Latitude', 'Longitude')
 end
 
 distances = []
@@ -58,20 +58,6 @@ routes.group_by { |route| route['Route ID'] }.each do |route_id, path|
     distances << distance
   end
 end
-
-#boston_streets = Set.new
-
-#routes.each do |route|
-  #if route['Address'].to_s =~ /^(?:\d+\s)?([a-zA-Z0-9 ]+), Boston/ # comma
-    #boston_streets << $1
-  #end
-#end
-
-#collisions.each do |collision|
-  #if collision['Address'].to_s =~ /^(?:\d+\s)?([a-zA-Z0-9 ]+)/ # no comma
-    #boston_streets << $1
-  #end
-#end
 
 collisions_by_street = Hash.new { |h,street| h[street] = 0 }
 routes_by_street = Hash.new { |h,street| h[street] = 0 }
@@ -98,4 +84,9 @@ collisions.each do |collision|
   end
 end
 
-binding.pry
+CSV.open("collisions_by_street.csv", "w") do |csv|
+  csv << ['street', 'trips', 'crashes']
+  trips_and_crashes_by_street.each do |street|
+    csv << [street[0],street[1][:trips],street[1][:crashes]]
+  end
+end

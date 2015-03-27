@@ -1,0 +1,962 @@
+street,trips,crashes
+Columbia Rd,22,12
+Marine Rd,7,1
+L St,7,0
+Summer St,32,11
+Congress St,27,4
+Seaport Blvd,9,0
+Seaport Ln,2,0
+Sleeper St,8,0
+Atlantic Ave,38,8
+E India Row,13,0
+Milk St,22,6
+State St,30,6
+Commercial St,16,1
+Fulton St,3,0
+Hanover St,4,0
+Cross St,5,0
+Cooper St,4,0
+N Washington St,17,2
+Charlestown Brg,10,0
+Charles River Ave,13,0
+Chelsea St,12,1
+City Sq,12,0
+Constitution Rd,6,0
+Chestnut St,31,1
+Prospect St,2,0
+Tremont St,72,32
+6th St,2,0
+Terry Ring Way,1,0
+Old Colony Ave,13,1
+Preble St,2,0
+Southampton St,4,7
+Massachusetts Ave,99,76
+Washington St,94,90
+Columbus Ave,31,36
+Huntington Ave,25,44
+Longwood Ave,12,9
+Fenwood Rd,4,1
+Newmarket Sq,1,0
+Rogers St,1,0
+Mercer St,5,0
+Old Harbor St,5,1
+E Broadway,3,1
+Farnsworth St,9,0
+Franklin St,19,3
+Liberty Sq,3,0
+Federal St,23,1
+Dorchester Ave,26,42
+B St,3,0
+World Trade Center Ave,1,0
+Douglas St,2,0
+Call St,14,0
+Crosby Sq,14,0
+Gordon St,11,0
+Amory St,16,5
+Boylston St,85,37
+Centre St,43,47
+Terrace St,26,1
+Prentiss St,22,8
+Ruggles St,23,5
+Parker St,11,9
+Fenway,26,3
+Park Dr,36,1
+St Marys St,6,0
+Jamaicaway,9,0
+Perkins St,15,2
+Prince St,8,1
+Arborway,16,0
+Eliot St,6,1
+Pond St,13,0
+South St,26,10
+St Mark St,10,0
+Anson St,8,0
+Beacon St,140,42
+Chestnut Hill Ave,17,5
+Westland Ave,16,1
+Causeway St,26,1
+Lomasney Way,15,1
+Nashua St,26,0
+Charles St,77,4
+Storrow Dr,71,0
+Cambridge St,105,45
+David G Mugar Way,68,0
+Revere St,28,2
+Brimmer St,21,0
+Otis Pl,25,0
+Mt Vernon St,47,0
+Hereford St,28,2
+Raleigh St,50,0
+Bay State Rd,60,0
+Deerfield St,38,0
+Boston University Brg,39,0
+Soldiers Field Rd,72,0
+Leverett Cir,22,0
+RT 28,27,0
+Beaver Pl,30,0
+Western Ave,44,14
+Harvard Way,26,0
+N Harvard St,35,5
+Eliot Brg,19,0
+Leo M Birmingham Pky,15,0
+N Beacon St,25,4
+Nonantum Rd,13,0
+Hooker St,6,0
+Empire St,2,2
+Brighton Ave,25,32
+Harvard Ave,14,10
+Commonwealth Ave,107,135
+Brookline Ave,16,16
+Day Blvd,11,0
+Morrissey Blvd,5,0
+William T Morrissey Blvd,5,1
+Old Colony Ter,4,0
+Freeport St,5,4
+Victory Rd,1,2
+Tenean St,3,0
+Conley St,3,0
+Lawley St,2,0
+Water St,13,7
+Taylor St,2,0
+Neponset Ave,3,3
+I 93,11,0
+12,2,0
+Hallet St,2,0
+Hill Top St,2,0
+Granite Ave,2,0
+Bearse Ave,1,0
+Butler St,1,0
+Branchfield St,1,0
+Medway St,1,0
+Mount Vernon St,17,3
+Clarendon St,14,2
+Shawmut Ave,9,11
+Waltham St,1,0
+E 8th St,5,1
+Covington St,1,0
+W 9th St,4,0
+Mitchell St,1,0
+Damrell St,3,0
+W 6th St,7,0
+W 4th St,12,3
+Silver St,6,0
+Foundry St,2,0
+E Berkeley St,10,1
+Dwight St,6,0
+Berkeley St,15,2
+Stuart St,20,7
+Dartmouth St,24,9
+St James Ave,3,1
+Buick St,2,4
+Warren St,5,11
+Sparhawk St,4,2
+Walworth St,2,0
+Belgrade Ave,8,2
+Tyndale St,1,0
+Walter St,4,1
+Weld St,3,0
+Louders Ln,6,0
+May St,8,0
+Burroughs St,5,0
+Dunster Rd,4,0
+Hillcroft Rd,1,0
+Brownson Ter,5,0
+Hewlett St,1,0
+Park St,18,3
+Harvard St,9,7
+Staniford St,4,1
+William Cardinal Oconnell Way,4,0
+Blossom St,10,0
+Emerson Pl,5,0
+Kneeland St,12,10
+Avery St,4,0
+Harrison Ave Ext,3,0
+Essex St,9,3
+Kingston St,7,0
+Chauncy St,7,1
+Beach St,4,0
+Harrison Ave,17,9
+Autumn St,7,0
+Netherlands Rd,3,0
+S Huntington Ave,7,15
+Spring Park Ave,2,1
+Saybrook St,1,2
+Murdock St,2,1
+Gardena St,1,2
+Etna St,1,0
+Market St,6,4
+Lawrence Pl,3,0
+Waverly St,4,0
+Lincoln St,20,3
+Royal St,4,0
+Mansfield St,3,0
+Linden St,5,2
+Center Plz,17,0
+Pinckney St,35,0
+Charlesgate W,12,0
+Agassiz Rd,4,0
+Charlesgate E,25,0
+Arlington St,28,2
+Court St,12,2
+Boston Pl,9,0
+New Sudbury St,8,0
+Temple St,12,1
+Hancock St,4,4
+Anderson Pl,4,1
+Anderson St,4,0
+Strong Pl,4,0
+Grove St,6,0
+Lindall Pl,4,0
+Charles River Sq,20,0
+University Rd,4,0
+Mountfort St,13,1
+Riverway,22,1
+Avenue Louis Pasteur,5,1
+Gloucester St,3,1
+Newbury St,27,18
+Gainsborough St,2,1
+St Stephen St,3,0
+Forsyth St,8,0
+Seaverns Ave,3,1
+Green St,20,3
+Lamartine St,20,2
+Heath St,19,3
+Ward St,2,0
+Jamaica St,1,0
+McBride St,4,4
+New Heath St,18,0
+Terrace Pl,24,0
+Elmwood St,21,2
+Station St,22,0
+Mindoro St,15,0
+Schroeder Plz,22,0
+Hemenway St,6,6
+Evans Way,12,0
+Bowdoin St,6,7
+Longfellow Brg,15,0
+Independence Dr,4,0
+VFW Pky,8,0
+Newfield St,3,0
+Baker St,7,2
+Carver St,9,0
+Charles St S,5,2
+Park Plz,7,2
+St Cyprians Pl,14,0
+Mozart St,1,1
+Wyman St,2,0
+Winter St,6,0
+Winter Pl,1,0
+Longfellow Pl,5,0
+Hawthorne Pl,3,0
+Martha Rd,6,0
+RT 3,19,0
+Blue Hill Ave,3,29
+Morton St,4,5
+American Legion Hwy,3,3
+Canterbury St,4,0
+Forest Hills St,5,1
+Rosemary St,7,0
+Hall St,7,0
+Boynton St,7,0
+Everett St,8,4
+Yawkey Way,5,0
+Silber Way,5,0
+W Cedar St,9,0
+Sudbury St,8,1
+Blackstone St,2,0
+Clinton St,2,0
+Broad St,3,1
+High St,30,1
+Northern Ave,9,1
+Chatham St,1,0
+Faneuil Hall Market Pl,1,0
+Faneuil Hall Sq,1,0
+North St,5,0
+City Hall Plz,9,0
+Union St,10,2
+Friend St,5,0
+Portland St,5,1
+Legends Way,2,0
+Farrington Ave,1,2
+Gardner St,1,1
+Dalton St,2,0
+Belvidere St,3,1
+St Germain St,1,2
+W Newton St,2,5
+St Botolph St,5,6
+Columbus Sq,7,0
+Pembroke St,1,0
+Warren Ave,6,0
+W Canton St,1,0
+Montgomery St,1,0
+W Dedham St,2,0
+Union Park St,1,0
+Monsignor Reynolds Way,1,0
+Appleton St,1,2
+Easton St,1,0
+Chesnut Hill Drwy,5,0
+St Thomas More Rd,5,0
+Wade St,2,0
+Sutherland Rd,2,5
+Boulevard Ter,5,0
+Phillips St,1,0
+Jersey St,5,0
+Queensberry St,5,0
+Shrewsbury Rd,5,0
+Vincent Rd,2,0
+W Roxbury Pky,9,1
+Parklawn Rd,2,0
+Anawan Ave,6,0
+Roslindale Ave,5,0
+Nikisch Ave,6,0
+Liszt St,6,0
+Blue Ledge Dr,8,0
+Enneking Pky,9,0
+Turtle Pond Pky,8,0
+Kovey Rd,5,0
+Vernon St,5,0
+Alvarado Ave,6,0
+River St,8,3
+Imbaro Rd,3,0
+Waterloo St,3,0
+Neponset Valley Pky,4,1
+Chesterfield St,3,0
+Hyde Park Ave,9,14
+Soldiers Field Pl,4,0
+Science Park,8,0
+Foster St,5,0
+Rogers Park Ave,5,0
+Kirkwood Rd,5,0
+Reservoir Rd,4,1
+Allandale St,4,0
+Elwell Rd,3,0
+Farmington Rd,2,0
+Lagrange St,5,2
+Capital St,5,0
+Spring St,5,3
+Lake St,5,2
+Florence St,1,1
+Cummins Hwy,1,4
+Chocorua St,4,0
+Asticou Rd,3,0
+Child St,2,1
+Dolans Ct,2,0
+School St,4,2
+Atherton St,1,0
+Highland St,4,0
+Sargent Crossway,1,0
+Winship St,3,2
+Henshaw St,2,1
+Charter St,1,0
+Beverly St,4,0
+N Anderson St,2,0
+Cummington St,12,1
+Ayr Rd,1,0
+Bedford St,1,0
+Bromfield St,4,1
+Province St,2,0
+Walnut St,10,0
+Sherborn St,4,2
+Norway St,1,1
+Haviland St,1,0
+Marlborough St,15,5
+Seattle St,3,0
+Hopedale St,3,0
+Windom St,3,1
+Purchase St,10,0
+Hopkins Rd,2,0
+Crehore Rd,2,0
+Beech St,6,0
+Raldne Rd,2,0
+Alwin St,2,0
+Radnor Rd,2,0
+Newton St,1,0
+Brooks St,3,3
+Faneuil St,4,4
+Exeter St,3,1
+Bennington St,1,0
+Walley St,1,0
+Leyden St,1,0
+Saratoga St,1,4
+Trident St,1,0
+Wordsworth St,1,1
+Byron St,2,0
+Eagle Sq,1,0
+E Eagle St,1,0
+Lexington St,1,0
+Lexington Sq,1,0
+Condor St,1,2
+Glendon St,1,0
+Meridian St,2,3
+Andrew P McArdle Brg,2,0
+W Concord St,2,0
+Worcester St,2,0
+W Springfield St,2,0
+Shirley St,5,1
+Buttonwood St,2,0
+Moseley St,3,0
+Von Hillern St,3,0
+Savin Hill Ave,2,2
+Evandale Ter,3,0
+Fox Pt Rd,2,0
+Alford St,6,3
+Main St,8,4
+Rutherford Ave,5,2
+Union Park,3,0
+Castle Ct,5,0
+D St,6,1
+Dorchester St,9,5
+Burke St,3,1
+G St,3,0
+H St,3,0
+K St,6,0
+N St,3,0
+E 7th St,4,0
+P St,9,0
+E 6th St,8,2
+William J Day Blvd,9,0
+Farragut Rd,9,0
+Conley Marine Terminal,8,0
+Shore Rd,8,0
+Frontage Rd,1,0
+Wadleigh Pl,1,0
+Ellery St,1,0
+Boston St,4,5
+Telegraph St,1,0
+E 4th St,1,0
+W Broadway,9,6
+E 3rd St,2,0
+E 2nd St,4,0
+E 1st St,12,0
+I St,2,0
+O St,5,0
+City Point Ct,5,0
+N Point Dr,1,0
+Ocean View Dr,1,0
+Oyster Bay Rd,1,0
+Columbia Pt,1,0
+Bellevue St,1,0
+Kingsland Rd,1,0
+Atlantis St,1,0
+Berwick St,3,0
+Fairview Ave,3,0
+Schubert St,4,0
+Colberg Ave,4,0
+Rhoda St,3,0
+Jamaicaway Ct,3,0
+Pondview Ave,3,0
+Day St,2,2
+Mark St,1,0
+Creighton St,1,1
+Sunnyside St,1,0
+Walden St,1,1
+Robinwood Ave,4,2
+Readville St,1,0
+Milton St,1,0
+Wolcott Sq,1,0
+Truman Pky,2,0
+March Ave,1,0
+Pilgrim Rd,7,0
+Rossmore Rd,2,0
+Vancouver St,3,0
+Museum Rd,3,0
+Cumberland St,2,0
+Garrison St,1,0
+Peter Parley Rd,2,0
+Cornwall St,2,0
+Brookside Ave,3,0
+Lawndale Ter,4,0
+Louis Prang St,1,2
+Brentwood St,1,0
+Fern St,3,0
+Glenville Ave,5,0
+Long Ave,2,1
+Allston St,5,5
+Vinal St,3,0
+Summit Ave,3,0
+Egremont Rd,2,0
+Mount Hood Rd,2,0
+Carruth St,1,0
+Gallivan Blvd,2,1
+Adams St,3,7
+Granville St,1,0
+Neponset Brg,1,0
+Ericsson St,1,0
+Sigourney St,1,0
+Glen Rd,2,2
+Bussey St,3,0
+Wenham St,1,1
+Weld Hill St,1,0
+Bishop St,1,0
+Elm St,2,0
+Chestnut Ave,6,1
+Elkins St,5,0
+Wallingford Rd,1,0
+Fidelis Way,1,0
+Devonshire St,10,0
+Winthrop Sq,3,0
+Ocallaghan Way,1,0
+A St,9,4
+Pearl St,4,0
+Post Office Sq,11,0
+New Chardon St,2,1
+Roseclair St,1,0
+Nassau St,1,0
+Bennet St,2,0
+Albany St,1,4
+Broadway Brg,1,0
+Greenbaum St,1,0
+E Springfield St,2,1
+Worcester Sq,1,1
+E Concord St,1,0
+E Brookline St,1,0
+Gillette Park,1,0
+Gurney St,3,0
+King St,1,0
+New Dudley St,2,1
+Malcolm X Blvd,2,0
+Roxbury St,1,4
+Putnam Pl,1,0
+W 2nd St,6,1
+Sobin Park,4,0
+Channel Center St,4,0
+River Street Pl,1,0
+Beaver St,1,0
+Warrenton St,6,0
+Hammond St,2,1
+Francis St,2,0
+Willoughby St,1,1
+Wensley St,1,0
+Holman St,1,1
+Falkland St,1,0
+Parsons St,3,1
+Melcher St,5,0
+Whittier Pl,3,0
+Merrimac St,4,2
+Brainerd Rd,3,1
+Pemberton Sq,2,0
+Somerset St,2,1
+Ashburton Pl,1,0
+W 1st St,9,1
+Pappas Way,6,0
+Drydock Ave,6,0
+Athens St,3,0
+W 3rd St,3,0
+Fairfield St,3,0
+Miner St,4,0
+Burlington Ave,4,0
+Kilmarnock St,3,0
+Peterborough St,3,1
+Harbor St,5,0
+Thomson Pl,7,0
+Cazenove St,5,0
+Batterymarch St,1,1
+Edinboro St,2,0
+Hudson St,3,0
+Alleghany St,1,2
+Jimmy Fund Way,2,0
+Lamartine Pl,2,0
+Oakdale St,2,0
+Cerina Rd,2,0
+Mapleton St,1,0
+Leon St,1,3
+Custer St,1,0
+Goldsmith St,1,1
+Medfield St,3,0
+Keswick St,3,1
+Lourdes Ave,1,0
+Segel St,1,0
+Calumet St,3,1
+St Alphonsus St,3,0
+Saint Alphonsus St,3,6
+Hillside St,2,0
+Sachem St,2,0
+Saint Stephen St,1,0
+Canal St,5,0
+Riverview Rd,1,0
+Orleans St,1,0
+Maverick St,1,1
+Maverick Sq,1,0
+Gilmore Brg,4,0
+Avenue de Lafayette,3,0
+Derne St,2,0
+1st Ave,1,1
+2nd Ave,1,0
+Constitution Plz,5,0
+US 1,7,0
+Poplar St,1,0
+Mendelssohn St,1,0
+Rowes Whrf,1,0
+Richmond St,1,0
+Parmenter St,1,0
+Salem St,2,0
+N Margin St,1,0
+Endicott St,4,1
+Thacher St,1,0
+Truman Hwy,2,0
+Pleasant St,2,0
+Fairmount Ave,2,2
+Tyler St,1,0
+Faraday St,1,1
+Wakefield Ave,1,0
+Temple Pl,1,0
+Feneno Ter,2,0
+Arch St,5,0
+Jackson Ave,2,0
+Hawley St,3,0
+Stimson St,1,1
+Reservation Rd,1,0
+Dedham St,1,0
+Smith Field Rd,1,0
+Brighton St,1,0
+Mystic Ave,2,0
+Sever St,4,0
+Dorrance St,1,0
+Sherman St,2,0
+Henley St,1,0
+Lynde St,2,0
+Tavern Rd,2,1
+Ipswich St,1,0
+Piedmont St,1,0
+Broadway St,1,0
+Leverett Circle Conn,2,0
+Baldwin St,3,0
+Babbitt St,3,0
+Buswell St,1,1
+Lester Pl,1,0
+Stillman Pl,1,0
+West St,3,2
+Follen St,1,0
+Germania St,1,0
+Brucewood St,1,0
+Keane Rd,1,0
+Medford St,2,1
+Camden St,1,2
+Lee St,1,0
+Corey Rd,1,4
+Dudley St,1,15
+E Newton St,1,0
+Binney St,1,0
+Florian St,1,0
+Southbourne Rd,1,0
+Walk Hill St,2,1
+Spalding St,1,0
+Woolsey Sq,2,0
+Royce Rd,1,0
+Ashford St,1,0
+Hazelmere Rd,1,0
+Sidley Rd,1,0
+Clement Ave,1,0
+Bellevue Hill Rd,1,0
+E Boundary Path,1,0
+Bold Knob Path,1,0
+Mt Ash Rd,1,0
+Putnam St,1,0
+Ferrin St,1,0
+Decatur St,1,0
+3rd Ave,1,0
+13th St,1,0
+16th St,1,0
+Austin St,1,0
+Yarmouth St,1,0
+Bourne St,1,0
+Aberdeen St,2,0
+Herald St,1,2
+Cortes St,1,0
+Yale Ter,1,0
+Blanche St,1,0
+Tolman St,1,0
+Holbrook Ave,1,0
+Binford St,2,0
+Washburn St,2,0
+Gibson St,2,0
+Cheverus Rd,2,0
+Shepton St,1,0
+Denvir St,1,0
+Florida St,1,0
+Lonsdale St,1,1
+Dracut St,2,0
+Ashmont St,2,1
+Fuller St,1,0
+Saint James Ave,1,0
+Milton Ave,1,0
+Fairmount Ct,1,0
+Central Ave,1,1
+Webster St,1,0
+Greenwood Ave,1,0
+Kenilworth St,0,1
+Lindall St,0,1
+Whittier St,0,6
+Stanwood St,0,5
+Intervale St,0,2
+Babcock St,0,4
+Hartford St,0,1
+Highgate St,0,3
+Lathrop Pl,0,1
+Quincy St,0,6
+Farnham St,0,1
+Tonawanda St,0,1
+Alpha Rd,0,2
+Hendry St,0,1
+Norfolk St,0,3
+Wheatland Ave,0,1
+Uphams Ct,0,2
+Chandler St,0,1
+Bellflower St,0,1
+George St,0,2
+Paris St,0,2
+Callender St,0,2
+Trinity Pl,0,2
+Richfield St,0,3
+Georgia St,0,2
+Rutland Sq,0,2
+Irma St,0,1
+Glenville Ter,0,1
+Mission Park Dr,0,2
+Arthur St,0,3
+Perkins Sq,0,1
+Erie St,0,1
+Sycamore St,0,1
+Moreland St,0,5
+Whitfield St,0,2
+Southern Ave,0,1
+Fisher Ave,0,1
+Church St,0,3
+Marion St,0,2
+Norwell St,0,2
+Curve St,0,2
+Glenwood Ave,0,1
+Lorne St,0,1
+Brook Ave,0,1
+Northampton St,0,1
+Rexford St,0,1
+Thornton St,0,2
+Geneva Ave,0,4
+Gustin St,0,1
+Clarkson St,0,1
+W Alcorn St,0,3
+Woodledge St,0,1
+Bowker St,0,1
+Leroy St,0,1
+Glenway St,0,2
+Clifford St,0,2
+Seaver St,0,4
+Woodward St,0,1
+Clearway St,0,2
+Kelton St,0,3
+Lubec St,0,1
+Gore St,0,7
+Prescott St,0,2
+Hecla St,0,2
+Ansel Rd,0,1
+Laurel St,0,1
+Carolina Ave,0,2
+Humboldt Ave,0,3
+Adams Pl,0,1
+Waldeck St,0,2
+Waverly Pl,0,1
+Higgins St,0,1
+Concord Sq,0,1
+Oscar St,0,2
+Normandy St,0,2
+Middleton St,0,1
+Talbot Ave,0,4
+Elm Hill Park,0,1
+Court Sq,0,3
+Roach St,0,1
+Albion Pl,0,1
+Kilby St,0,1
+Belden St,0,1
+Turner St,0,1
+Baker Ct,0,2
+Blackfan St,0,2
+Williams St,0,2
+Burrage St,0,1
+Spencer St,0,2
+Marcella St,0,1
+Birch St,0,1
+Ceylon St,0,1
+Brinsley St,0,2
+Colburn St,0,4
+Sumner St,0,3
+Beecher St,0,1
+Balfour St,0,1
+Wait St,0,2
+Rockvale Cir,0,1
+S Munroe Ter,0,2
+Strathmore Rd,0,1
+Beechcroft St,0,1
+Ivory St,0,1
+Ash St,0,1
+Tip Top St,0,1
+West School St,0,1
+Welles Ave,0,2
+Woodward Park St,0,1
+Msgr O,0,1
+Pierce St,0,1
+Hampden St,0,2
+Basile St,0,1
+Melville Ave,0,1
+Bremen St,0,3
+Crowley Rogers Way,0,1
+Floyd St,0,1
+Silvia Ct,0,1
+St Ann St,0,1
+Holton St,0,2
+Julian St,0,1
+E 9th St,0,2
+Dakota St,0,2
+Chappie St,0,1
+Minton St,0,2
+Englewood Ave,0,1
+Page St,0,1
+Nelson Ct,0,1
+Common St,0,1
+Norton St,0,2
+Eatonia St,0,1
+Copeland St,0,2
+Gaffney St,0,1
+Ziegler St,0,2
+Myrtle St,0,1
+Avon St,0,1
+Lancaster St,0,2
+Village Ct,0,1
+Robert St,0,1
+Schiller St,0,1
+Armandine St,0,1
+Embankment Rd,0,1
+Bragdon St,0,1
+Spice St,0,2
+Greenleaf St,0,1
+Clifton St,0,2
+S Walter St,0,1
+Blagden St,0,1
+Kingsboro Park,0,2
+Border St,0,2
+Frontenac St,0,1
+Carter St,0,1
+Whiting St,0,1
+Carmel St,0,2
+Everton St,0,1
+Kemble St,0,1
+Percival St,0,1
+Necco Ct,0,1
+Pratt St,0,1
+Central St,0,1
+Rollins St,0,1
+5th St,0,2
+Harmony St,0,1
+Greenwich St,0,1
+Maple St,0,1
+Stafford St,0,1
+Dearborn St,0,2
+Sweetfern Ter,0,1
+Bell Ct,0,1
+Stoughton St,0,1
+Woodbole Ave,0,1
+E Cottage St,0,1
+McKone St,0,1
+F St,0,3
+Woodrow Ave,0,1
+Mattapan St,0,1
+Greenview Ave,0,1
+Danville St,0,1
+Adelaide St,0,1
+Harold St,0,1
+Converse St,0,1
+Franklin Hill Ave,0,1
+Whitford St,0,1
+Topeka St,0,1
+Joyce Hayes Way,0,1
+Robey St,0,1
+Chilcott Pl,0,1
+Levant St,0,1
+Otis St,0,1
+Savin St,0,1
+Corey St,0,2
+Hazelwood St,0,1
+Fowler St,0,1
+E Lenox St,0,1
+Magnolia St,0,1
+Granby St,0,1
+W Cottage St,0,2
+Torrey St,0,1
+Craftsman St,0,1
+Annunciation Rd,0,1
+Greylock Rd,0,1
+Magazine St,0,1
+Deering Rd,0,1
+Wrentham St,0,2
+Brookway Rd,0,1
+Stanhope St,0,1
+Howard Ave,0,2
+Corinth St,0,1
+Ridgeway Ln,0,1
+Homes Ave,0,1
+Emerson St,0,1
+Knapp St,0,1
+High View Ave,0,1
+Kenrick St,0,1
+Eutaw St,0,1
+Matchett St,0,1
+Ellet St,0,1
+Ashford Ter,0,1
+Irving St,0,1
+Oliver St,0,1
+Winthrop St,0,1
+S Russell St,0,1
+Eldridge Rd,0,1
+Elba Ter,0,1
+Hartland St,0,1
+Academy Hill Rd,0,1
+Milford St,0,1
+Moore St,0,1
+Sheridan St,0,2
+East St,0,1
+Millet St,0,1
+Caldwell St,0,2
+Georgetowne Dr,0,1
+Homestead St,0,1
+Guest St,0,1
+Gerard St,0,1
+Walnut Ave,0,1
+Harding Rd,0,1
+Carpenter St,0,1
+Burrell St,0,1
+Devon St,0,1
+Dacia St,0,1
+Batchelder St,0,1
+Crafts St,0,1
+Claxton St,0,1
+Scotia St,0,1
+Flaherty Way,0,1
+Kingston Pl,0,1
+Elmer Rd,0,1
+Fairbanks St,0,1
+E St,0,1
+Tamworth St,0,2
+I,0,1
+Wainwright St,0,1
+Landor Rd,0,1
+Barrows St,0,1
+Boylston Sq,0,1
+Vinton St,0,1
+Parkman St,0,1
+Warner St,0,1
+Woolson St,0,1
+Deckard St,0,1
+Thorndike St,0,1
+Porter St,0,1
+Whitman St,0,1
+Metcalf Ct,0,1
+Havre St,0,1
+Putnam Ave,0,1
+Starr Ln,0,1
+India St,0,1
+Atkins St,0,1
+Payson Ave,0,1
+S Market St,0,1
+Boylston Pl,0,1
+Wise St,0,1
+Johnson Ave,0,1
+Jerome St,0,1
