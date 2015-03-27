@@ -59,34 +59,31 @@ routes.group_by { |route| route['Route ID'] }.each do |route_id, path|
   end
 end
 
-collisions_by_street = Hash.new { |h,street| h[street] = 0 }
-routes_by_street = Hash.new { |h,street| h[street] = 0 }
+CSV.open("events_by_street.csv", "w") do |csv|
+  csv << ['Street', 'Event', 'Datetime']
 
-trips_and_crashes_by_street = Hash.new { |h, street| h[street] = { trips: 0, crashes: 0 } }
+  routes.group_by { |route| route['Route ID'] }.each do |route_id, path|
+    streets_on_route = Set.new
 
-routes.group_by { |route| route['Route ID'] }.each do |route_id, path|
-  streets_on_route = Set.new
-
-  path.each do |point|
-    if point['Address'].to_s =~ /^(?:\d+\s)?([a-zA-Z0-9 ]+), Boston/
-      streets_on_route << $1
+    path.each do |point|
+      if point['Address'].to_s =~ /^(?:\d+\s)?([a-zA-Z0-9 ]+), Boston/
+        unless streets_on_route.include? $1
+          streets_on_route << $1
+          utc_time = Time.parse(point['Datetime'])
+          est_time = Time.at(utc_time.to_f - 4*3600)
+          csv << [$1, 'Trip', est_time.to_s.sub(/\s-\d\d\d\d$/, '')]
+        end
+      end
     end
   end
 
-  streets_on_route.each do |street|
-    trips_and_crashes_by_street[street][:trips] += 1
-  end
-end
-
-collisions.each do |collision|
-  if collision['Address'].to_s =~ /^(?:\d+\s)?([a-zA-Z0-9 ]+)/
-    trips_and_crashes_by_street[$1][:crashes] += 1
-  end
-end
-
-CSV.open("collisions_by_street.csv", "w") do |csv|
-  csv << ['street', 'trips', 'crashes']
-  trips_and_crashes_by_street.each do |street|
-    csv << [street[0],street[1][:trips],street[1][:crashes]]
+  collisions.each do |collision|
+    if collision['Address'].to_s =~ /^(?:\d+\s)?([a-zA-Z0-9 ]+)/
+      next unless collision['DATE'].to_s.length > 0
+      m, d, y = collision['DATE'].split('/')
+      time_string = "#{y}-#{m.rjust(2, '0')}-#{d.rjust(2, '0')} #{collision['TIME']}"
+      time = Time.parse(time_string)
+      csv << [$1, 'Crash', time.to_s.sub(/\s-\d\d\d\d$/, '')]
+    end
   end
 end
