@@ -30,22 +30,37 @@
         width: 82.5%;
       }
 
+      body section {
+        width: 70%;
+      }
       iframe {
-        width: 100%;
+        width: 150%;
         height: 860px;
         border: none;
+        overflow: hidden;
+      }
+      #appendix iframe {
+        overflow: hidden;
+      }
+      h2 {
+        padding: 25px 0 5px 0;
+      }
+      h4 {
+        padding: 25px 0 5px 0;
       }
     </style>
   </head>
 
   <body>
-    <h1 id='title'>Bike Safety in Boston</h1>
+    <section id='intro'>
+      <h1 id='title'>Bike Safety in Boston</h1>
 
-    <p>The <a href='http://www.bostonarearesearchinitiative.net/'>Boston Area Research Initiative</a> recently released a <a href='http://thedata.harvard.edu/dvn/dv/BARI/faces/study/StudyPage.xhtml?globalId=doi:10.7910/DVN/24713&studyListingIndex=0_b7dfc61cc86a188efbdb4ab5c2a9'>dataset of all bicycle crashes from 2009-2012</a>. There were several <a href="http://www.bostonmagazine.com/news/blog/2014/06/18/bike-crash-map-boston-data/">articles</a> <a href="http://www.boston.com/news/local/massachusetts/2014/06/19/cyclists-beware-this-new-map-shows-bike-crash-hotspots-across-boston/mGiHsi6gOIPLvgJjBw1yFJ/story.html">and</a> <a href="http://www.cityofboston.gov/news/uploads/16776_49_15_27.pdf">analyses</a> published, but the <a href="http://www.cityofboston.gov/news/uploads/16776_49_15_27.pdf">official City of Boston report</a> did not consider "impact adding bike lanes, shared lanes or cycletracks had on cyclist collisions", and "recommended that future analysis begin to look" into it.<p>
+      <p>The <a href='http://www.bostonarearesearchinitiative.net/'>Boston Area Research Initiative</a> recently released a <a href='http://thedata.harvard.edu/dvn/dv/BARI/faces/study/StudyPage.xhtml?globalId=doi:10.7910/DVN/24713&studyListingIndex=0_b7dfc61cc86a188efbdb4ab5c2a9'>dataset of all bicycle crashes from 2009-2012</a>. There were several <a href="http://www.bostonmagazine.com/news/blog/2014/06/18/bike-crash-map-boston-data/">articles</a> <a href="http://www.boston.com/news/local/massachusetts/2014/06/19/cyclists-beware-this-new-map-shows-bike-crash-hotspots-across-boston/mGiHsi6gOIPLvgJjBw1yFJ/story.html">and</a> <a href="http://www.cityofboston.gov/news/uploads/16776_49_15_27.pdf">analyses</a> published, but the <a href="http://www.cityofboston.gov/news/uploads/16776_49_15_27.pdf">official City of Boston report</a> did not consider "impact adding bike lanes, shared lanes or cycletracks had on cyclist collisions", and "recommended that future analysis begin to look" into it.<p>
 
-    <p>One other factor the City of Boston report didn't consider in depth was the total traffic through an area. The number of collisions might be large along a particular street or intersection, but is that because the street is dangerous, or because there is simply a lot of traffic?<p>
+      <p>One other factor the City of Boston report didn't consider in depth was the total traffic through an area. The number of collisions might be large along a particular street or intersection, but is that because the street is dangerous, or because there is simply a lot of traffic?<p>
 
-    <p>We combined the <a href='http://www.cityofboston.gov/bikes/statistics.asp'>BARI dataset</a> with <a href="">data released for Hubhacks</a> by <a href='http://runkeeper.com'>Runkeeper</a>, a smartphone application that tracks your runs and bicycle rides, to try to get a sense of the likelihood of collisions adjusted for traffic. And we used <a href='http://maps.cityofboston.gov/ArcGIS/rest/services/BaseServices/Bike_network/MapServer'>City of Boston bike lane data</a> to determine how many of those collisions and rides occurred on bike lanes, to get a sense of how much they help.</p>
+      <p>We combined the <a href='http://www.cityofboston.gov/bikes/statistics.asp'>BARI dataset</a> with <a href="">data released for Hubhacks</a> by <a href='http://runkeeper.com'>Runkeeper</a>, a smartphone application that tracks your runs and bicycle rides, to try to get a sense of the likelihood of collisions adjusted for traffic. And we used <a href='http://maps.cityofboston.gov/ArcGIS/rest/services/BaseServices/Bike_network/MapServer'>City of Boston bike lane data</a> to determine how many of those collisions and rides occurred on bike lanes, to get a sense of how much they help.</p>
+    </section>
 
     <section id='map'>
       <h2>Interactive Map</h2>
@@ -87,7 +102,7 @@
 
       <p> Both data sets are seasonal, and both vary across time of day and day of week: </p>
 
-      <iframe src="https://public.tableau.com/views/RunkeeperandCollisionTiming/Page3?:embed=y&amp;:showVizHome=no&amp;:display_static_image=y" style='height:500px; max-width:1000px; overflow: hidden;'></iframe>
+      <iframe src="https://public.tableau.com/views/RunkeeperandCollisionTiming/Page3?:embed=y&amp;:showVizHome=no&amp;:display_static_image=y"></iframe>
 
       <p> Notice that collisions are concentrated around commuting hours and on workdays, with more of the collisions happening in the afternoon, while biking data is a little more evenly distributed throughout the afternoon and day of week. This may reflect a systematic bias in the Runkeeper data towards casual biking, although there is undoubtedly still commuting data present in the set.  </p>
 
