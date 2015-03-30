@@ -5,11 +5,28 @@ routes = CSV.parse(File.read('./geocoded_cycling_data.csv'), headers: true)
 collisions = CSV.parse(File.read('./bike_collision_geo.csv'), headers: true)
 bikepaths = CSV.parse(File.read('./joined-bikepaths.csv'), headers: true)
 
-headers = ['Data Type', 'Path Id', 'Step', 'Time', 'Street Name', 'Latitude', 'Longitude', 'Step Distance', 'Total Distance', 'Narrative']
+headers = ['Data Type', 'Path Id', 'Step', 'Time', 'Street Name', 'Latitude', 'Longitude', 'Step Distance', 'Total Distance', 'Narrative', 'On Bike Lane']
 
 distance_lists = {}
 
 CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', headers: headers, write_headers: true) do |output|
+
+  @bikepaths_by_street = Hash.new{|h,street| h[street] = [] }
+
+  def on_bike_lane?(row)
+    bikepaths = @bikepaths_by_street[row['Street Name']]
+    if bikepaths.length > 0
+      path, min_distance = min_and_value(bikepaths) { |seg| distance_between(row, seg) }
+      if min_distance < path['Step Distance']
+        if Time.parse(row['Time']) > Time.parse(path['Time'])
+          return true
+        else
+          return "Not yet built"
+        end
+      end
+    end
+    false
+  end
 
   bikepaths.group_by { |row| row['path_id'] }.each do |path_id, rows|
     segment_data = []
@@ -35,7 +52,7 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
           sub(' Bridge', ' Brg').
           sub(' Highway', ' Hwy')
 
-      segment_data << {
+      segment = {
         'Data Type'   => 'Bike Path',
         'Path Id'     => row['path_id'],
         'Step'        => row['step'],
@@ -45,6 +62,8 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
         'Longitude'   => row['longitude'],
         'Step Distance' => distance
       }
+      segment_data << segment
+      @bikepaths_by_street[street_name] << segment
     end
 
     calc_total_distance = segment_data.inject(0) { |acc, rd| acc + rd['Step Distance'] }
@@ -75,6 +94,8 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
       'Longitude'   => row["LON"],
       'Narrative'   => row["Narrative"]
     }
+    row_data['On Bike Lane'] = on_bike_lane?(row_data)
+
     output << row_data.values_at(*headers)
   end
 
@@ -110,7 +131,7 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
         distance = distance_between(row, rows[i+1])
       end
 
-      route_data << {
+      route_datum = {
         'Data Type' => 'Runkeeper Route',
         'Path Id' => base_route_id + route_no,
         'Step' => i + 1,
@@ -121,6 +142,8 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
         'Longitude' => row['Longitude'],
         'Step Distance' => distance
       }
+      route_datum['On Bike Lane'] = on_bike_lane?(route_datum)
+      route_data << route_datum
 
       distances << distance
     end

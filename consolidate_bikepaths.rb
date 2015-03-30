@@ -3,12 +3,6 @@ require_relative './helpers'
 bikepaths = CSV.parse(File.read('./bike-path-data.csv'), headers: true)
 bikepaths_by_name = bikepaths.select { |row| row['year'].to_i <= 2012 }.group_by { |row| row['bike_path_name'] }
 
-def min_and_value(array, &block)
-  min_element = array.min_by(&block)
-  min_value = array.map(&block).min
-  [min_element, min_value]
-end
-
 def find_complete_paths(path_segments)
   longest_segment = path_segments.max_by(&:length)
   path_segments.delete(longest_segment)

@@ -46,3 +46,9 @@ def distance_between_latlngs(lat1, lon1, lat2, lon2)
   c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
   3_959 * c # earth's radius is 3,959 miles
 end
+
+def min_and_value(array, &block)
+  min_element = array.min_by(&block)
+  min_value = array.map(&block).min
+  [min_element, min_value]
+end
