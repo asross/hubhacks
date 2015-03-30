@@ -1,3 +1,6 @@
+require 'pry'
+require 'csv'
+
 class Array
   def sum
     inject(0.0) { |result, el| result + el }
@@ -22,8 +25,16 @@ def deg2rad(deg)
   deg.to_f * (Math::PI/180.0)
 end
 
+def lat(h)
+  h['Latitude'] || h['latitude']
+end
+
+def lng(h)
+  h['Longitude'] || h['longitude']
+end
+
 def distance_between(r1, r2)
-  distance_between_latlngs(r1['Latitude'], r1['Longitude'], r2['Latitude'], r2['Longitude'])
+  distance_between_latlngs(lat(r1), lng(r1), lat(r2), lng(r2))
 end
 
 def distance_between_latlngs(lat1, lon1, lat2, lon2)

@@ -1,5 +1,3 @@
-require 'pry'
-require 'csv'
 require_relative './helpers'
 
 route_summary = CSV.parse(File.read('./route_summary.csv'), headers: true)
