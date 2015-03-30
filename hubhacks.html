@@ -1,29 +1,69 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Hubhacks - Bike Safety in Boston - Vermonster</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bike Safety in Boston - Vermonster</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
     <style type='text/css'>
       body {
         font-family: 'Trebuchet MS';
         color: #555555;
-        width: 90%;
+        width: 88%;
         margin: 3em auto;
       }
+      p {
+        font-size: 1.25em;
+        width: 82.5%;
+      }
       iframe {
-        width: 100%;
+        min-width: 100%;
         height: 860px;
         border: none;
+        overflow: hidden;
       }
+      #appendix iframe {
+        overflow: hidden;
+      }
+      h2 {
+        padding: 25px 0 5px 0;
+      }
+      h4 {
+        padding: 25px 0 5px 0;
+      }
+      .vermonster-credits { float: right; text-align: right; }
     </style>
   </head>
 
   <body>
-    <h1 id='title'>Bike Safety in Boston</h1>
+    <div class='vermonster-credits'>
+      Built by Andrew, Paul, Beth, and Chris at <a class='vermonster-link' target="_blank" href='http://www.vermonster.com/'>Vermonster</a>
+      <br>
+      <a target="_blank" href='https://github.com/asross/hubhacks'>Hubhacks Repo</a>&nbsp;
+    </div>
 
-    <p>The <a href='http://www.bostonarearesearchinitiative.net/'>Boston Area Research Initiative</a> recently released a <a href='http://thedata.harvard.edu/dvn/dv/BARI/faces/study/StudyPage.xhtml?globalId=doi:10.7910/DVN/24713&studyListingIndex=0_b7dfc61cc86a188efbdb4ab5c2a9'>dataset of all bicycle crashes from 2009-2012</a>. There were several <a href="http://www.bostonmagazine.com/news/blog/2014/06/18/bike-crash-map-boston-data/">articles</a> <a href="http://www.boston.com/news/local/massachusetts/2014/06/19/cyclists-beware-this-new-map-shows-bike-crash-hotspots-across-boston/mGiHsi6gOIPLvgJjBw1yFJ/story.html">and</a> <a href="http://www.cityofboston.gov/news/uploads/16776_49_15_27.pdf">analyses</a> published, but the <a href="http://www.cityofboston.gov/news/uploads/16776_49_15_27.pdf">official City of Boston report</a> did not consider "impact adding bike lanes, shared lanes or cycletracks had on cyclist collisions", and "recommended that future analysis begin to look" into it.<p>
+    <section id='intro'>
+      <h1 id='title'>Bike Safety in Boston</h1>
 
-    <p>One other factor the City of Boston report didn't consider in depth was the total traffic through an area. The number of collisions might be large along a particular street or intersection, but is that because the street is dangerous, or because there is simply a lot of traffic?<p>
+      <p>The <a target="_blank" href='http://www.bostonarearesearchinitiative.net/'>Boston Area Research Initiative</a> recently released a <a target="_blank" href='http://thedata.harvard.edu/dvn/dv/BARI/faces/study/StudyPage.xhtml?globalId=doi:10.7910/DVN/24713&studyListingIndex=0_b7dfc61cc86a188efbdb4ab5c2a9'>dataset of all bicycle crashes from 2009-2012</a>. There were several <a target="_blank" href="http://www.bostonmagazine.com/news/blog/2014/06/18/bike-crash-map-boston-data/">articles</a> <a target="_blank" href="http://www.boston.com/news/local/massachusetts/2014/06/19/cyclists-beware-this-new-map-shows-bike-crash-hotspots-across-boston/mGiHsi6gOIPLvgJjBw1yFJ/story.html">and</a> <a target="_blank" href="http://www.cityofboston.gov/news/uploads/16776_49_15_27.pdf">analyses</a> published, but the <a target="_blank" href="http://www.cityofboston.gov/news/uploads/16776_49_15_27.pdf">official City of Boston report</a> did not consider "impact adding bike lanes, shared lanes or cycletracks had on cyclist collisions", and "recommended that future analysis begin to look" into it.<p>
 
-    <p>We combined the <a href='http://www.cityofboston.gov/bikes/statistics.asp'>BARI dataset</a> with <a href="">data released for Hubhacks</a> by <a href='http://runkeeper.com'>Runkeeper</a>, a smartphone application that tracks your runs and bicycle rides, to try to get a sense of the likelihood of collisions adjusted for traffic. And we used <a href='http://maps.cityofboston.gov/ArcGIS/rest/services/BaseServices/Bike_network/MapServer'>City of Boston bike lane data</a> to determine how many of those collisions and rides occurred on bike lanes, to get a sense of how much they help.</p>
+      <p>One other factor the City of Boston report didn't consider in depth was the total traffic through an area. The number of collisions might be large along a particular street or intersection, but is that because the street is dangerous, or because there is simply a lot of traffic?<p>
+
+      <p>We combined the <a target="_blank" href='http://www.cityofboston.gov/bikes/statistics.asp'>BARI dataset</a> with <a target="_blank" href="">data released for Hubhacks</a> by <a target="_blank" href='http://runkeeper.com'>Runkeeper</a>, a smartphone application that tracks your runs and bicycle rides, to try to get a sense of the likelihood of collisions adjusted for traffic. And we used <a target="_blank" href='http://maps.cityofboston.gov/ArcGIS/rest/services/BaseServices/Bike_network/MapServer'>City of Boston bike lane data</a> to determine how many of those collisions and rides occurred on bike lanes, to get a sense of how much they help.</p>
+    </section>
 
     <section id='map'>
       <h2>Interactive Map</h2>
@@ -33,16 +73,47 @@
     <section id='bar'>
       <h2>The Effect of Bike Lanes</h2>
       <p>
-       The following graphs display, by street, traffic and collisions between May 2010 and December 2012, filtered down to streets with at least 10 collisions and 5 km worth of Runkeeper rides. 
+       The following graphs display, by street, traffic and collisions between May 2010 and December 2012, filtered down to streets with at least 10 collisions and 5 km worth of Runkeeper rides.
       </p>
 
-      <p>Conclusions we can draw:</p>
-      <h4>You're safer in a bike lane</h4>
-      <p>Across the board, collision rates are lower in bike lanes, which can be visualized by the difference in area under the curve on the orange collisions/distance graph. On average, combining data for all streets, we found that collisions were 132% likelier to occur off bike lanes than on them.<p>
-      <h4>Beacon Street is really safe on or off bike lanes</h4>
-      <p>Both on and off bike lanes (and especially off), it has the lowest rate of collisions per biker. It's possible that the Runkeeper data is biased to include more 
-
       <iframe src="https://public.tableau.com/views/CollisionsonandoffBikeLanes/Page2?:embed=y&:showVizHome=no&:display_static_image=y"></iframe>
+
+      <h2>Conclusions we can draw</h2>
+      <h3>You're safer in a bike lane</h3>
+      <p>Across the board, collision rates are lower in bike lanes, which can be visualized by the difference in area under the curve on the orange collisions/distance graph. On average, combining data for all streets, we found that collisions were 132% likelier to occur off bike lanes than on them.<p>
+      <h3>Beacon Street is really safe</h3>
+      <p>Both on and off bike lanes (and especially off), it has the lowest rate of collisions per biker. However, it's possible we are missing bike lane data, which would explain its high safety. Beacon Street has a bike lane now according to Google maps, but according to the City of Boston dataset, it didn't as of 2013. Regardless, the data indicates that it's one of the safest streets.</p>
+      <h3>The street with the most collisions isn't particularly dangerous</h3>
+      <p>Commonwealth Ave has the most total collisions, but its collision-to-trip ratio is not very high compared to most other streets.</p>
+      <h3>Consider adding more bike lanes to Blue Hill Ave, Columbus Ave, and Huntington Ave</h3>
+      <p>These streets have the worst collision-to-trip ratios, both off-bike lanes and in total. As you can see from the detail, Blue Hill has gotten better since a bike lane was added to part of it (most of the collisions in that area occurred before the bike lane was added), but a dangerous area to the north remains.</p>
+      <p>Columbus Ave and Huntington Ave don't appear as bad, but they have more data supporting them, and Huntington Ave in particular appears to have been made safer in the areas where a bike lane was added.</p>
+      <p>Note that for Columbus Ave, there are multiple collision dots overlapping at the intersections with Centre St and Heath St, indicating that those spots might be good areas to focus on (to save more lives with relatively little effort).</p>
+      <iframe frameborder="0" id="viz_embedded_frame" ng-src="https://public.tableau.com/views/danger_bar_graph/Dashboard4?:embed=y&amp;:showVizHome=no&amp;:showTabs=y&amp;:display_count=y&amp;:display_static_image=y" data-load-viz-resize="" src="https://public.tableau.com/views/danger_bar_graph/Dashboard4?:embed=y&amp;:showVizHome=no&amp;:showTabs=y&amp;:display_count=y&amp;:display_static_image=y" style="height: 863px; width: 1004px;"></iframe>
     </section>
+
+    <section id='appendix'>
+      <h2>Data Appendix</h2>
+
+      <p> The purpose of this section is to provide additional details about the data and to add caveats against overinterpreting it (but also justifications that it has some validity).</p>
+
+      <p> The main Hubhacks dataset we used was from Runkeeper, and the initial task was to correlate it with the collision dataset. The Runkeeper data has been filtered to only include cycling trips, and only the portions of those trips that are within Boston, since the collision dataset is Boston-only (not greater Boston area). In addition, both datasets have been filtered so that they span the same time range (they overlap from May 2010 to December 2012).  </p>
+
+      <p>Within this time range, the Runkeeper data only spans 157 distinct biking trips (out of a total of 383 biking trips represented in the full data), but expanding those trips out into their full routes, we do have 34261 biker positions across 712 Boston streets, spanning a total of 2240 kilometers.</p>
+
+      <p>For the same time and space, we have data on 1340 biking collisions requiring EMS intervention across 430 Boston streets.</p>
+
+      <p> Both data sets are seasonal, and both vary across time of day and day of week: </p>
+
+      <iframe src="https://public.tableau.com/views/RunkeeperandCollisionTiming/Page3?:embed=y&amp;:showVizHome=no&amp;:display_static_image=y" style='height: 450px; max-width: 1000px'></iframe>
+
+      <p> Notice that collisions are concentrated around commuting hours and on workdays, with more of the collisions happening in the afternoon, while biking data is a little more evenly distributed throughout the afternoon and day of week. This may reflect a systematic bias in the Runkeeper data towards casual biking, although there is undoubtedly still commuting data present in the set.  </p>
+
+      <p> Finally, we obtained data on bike lanes in Boston (along with approximately when they were added). These bike lanes span a total of 250 kilometers across 136 streets. One weakness of the bike lane dataset is that it only includes the year each segment of each bike lane was installed (and for lanes added before 2007, there's no year). That means, for collisions or Runkeeper trips that occur in the same year the bike lane was added, we don't know for sure whether that collision or trip point was on a bike lane. We assume yes for our visualizations, and even if we're wrong it shouldn't bias the results too much, but it would be useful to know exactly when the lane became active.</p>
+
+    </section>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </body>
 </html>
