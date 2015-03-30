@@ -10,7 +10,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-<!-- Optional theme -->
+    <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,9 +32,9 @@
       }
     </style>
   </head>
-  <body>
 
-<h1 id='title'>Bike Safety in Boston</h1>
+  <body>
+    <h1 id='title'>Bike Safety in Boston</h1>
 
     <p>The <a href='http://www.bostonarearesearchinitiative.net/'>Boston Area Research Initiative</a> recently released a <a href='http://thedata.harvard.edu/dvn/dv/BARI/faces/study/StudyPage.xhtml?globalId=doi:10.7910/DVN/24713&studyListingIndex=0_b7dfc61cc86a188efbdb4ab5c2a9'>dataset of all bicycle crashes from 2009-2012</a>. There were several <a href="http://www.bostonmagazine.com/news/blog/2014/06/18/bike-crash-map-boston-data/">articles</a> <a href="http://www.boston.com/news/local/massachusetts/2014/06/19/cyclists-beware-this-new-map-shows-bike-crash-hotspots-across-boston/mGiHsi6gOIPLvgJjBw1yFJ/story.html">and</a> <a href="http://www.cityofboston.gov/news/uploads/16776_49_15_27.pdf">analyses</a> published, but the <a href="http://www.cityofboston.gov/news/uploads/16776_49_15_27.pdf">official City of Boston report</a> did not consider "impact adding bike lanes, shared lanes or cycletracks had on cyclist collisions", and "recommended that future analysis begin to look" into it.<p>
 
@@ -53,19 +53,22 @@
        The following graphs display, by street, traffic and collisions between May 2010 and December 2012, filtered down to streets with at least 10 collisions and 5 km worth of Runkeeper rides.
       </p>
 
-      <p>Conclusions we can draw:</p>
+      <iframe src="https://public.tableau.com/views/CollisionsonandoffBikeLanes/Page2?:embed=y&:showVizHome=no&:display_static_image=y"></iframe>
+
+      <h2>Conclusions we can draw:</h2>
       <h4>You're safer in a bike lane</h4>
       <p>Across the board, collision rates are lower in bike lanes, which can be visualized by the difference in area under the curve on the red collisions/distance graph. On average, combining data for all streets, we found that collisions were XXX% likelier to occur off bike lanes than on them.<p>
       <h4>Beacon Street is really safe on or off bike lanes</h4>
-      <p>Both on and off bike lanes (and especially off), it has the lowest rate of collisions per biker. It's possible that the Runkeeper data is biased to include more
+      <p>Both on and off bike lanes (and especially off), it has the lowest rate of collisions per biker. It's possible that the Runkeeper data is biased to include more.
+    </section>
 
-      <iframe src="https://public.tableau.com/views/CollisionsonandoffBikeLanes/Page2?:embed=y&:showVizHome=no&:display_static_image=y"></iframe>
-
+    <section id='alt-graphs'>
+      <h2> *** Alternative Graph Views ***</h2>
       <iframe frameborder="0" id="viz_embedded_frame" ng-src="https://public.tableau.com/views/danger_bar_graph_pw/Page2?:embed=y&amp;:showVizHome=no&amp;:showTabs=y&amp;:display_count=y&amp;:display_static_image=y" data-load-viz-resize="" src="https://public.tableau.com/views/danger_bar_graph_pw/Page2?:embed=y&amp;:showVizHome=no&amp;:showTabs=y&amp;:display_count=y&amp;:display_static_image=y" style="height: 863px; width: 1004px;"></iframe>
 
       <iframe frameborder="0" id="viz_embedded_frame" ng-src="https://public.tableau.com/views/danger_bar_graph_old/p3?:embed=y&amp;:showVizHome=no&amp;:showTabs=y&amp;:display_count=y&amp;:display_static_image=y" data-load-viz-resize="" src="https://public.tableau.com/views/danger_bar_graph_old/p3?:embed=y&amp;:showVizHome=no&amp;:showTabs=y&amp;:display_count=y&amp;:display_static_image=y" style="height: 863px; width: 1004px;"></iframe>
-
     </section>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
