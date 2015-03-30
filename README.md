@@ -1,6 +1,6 @@
 # Hubhacks
 
-This is the Vermonster team's repository for [Hubhacks challenge](http://hubhacks2.challengepost.com/).
+This is the [Vermonster](http://www.vermonster.com/) team's repository for [Hubhacks challenge](http://hubhacks2.challengepost.com/).
 
 We are using [Tableau](http://www.tableau.com/) for the visualizations. In this repository, we are:
 * adding links to the raw data we're using
