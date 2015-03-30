@@ -62,13 +62,26 @@
       <p>Both on and off bike lanes (and especially off), it has the lowest rate of collisions per biker. It's possible that the Runkeeper data is biased to include more.
     </section>
 
-    <section id='alt-graphs'>
-      <h2> *** Alternative Graph Views ***</h2>
-      <iframe frameborder="0" id="viz_embedded_frame" ng-src="https://public.tableau.com/views/danger_bar_graph_pw/Page2?:embed=y&amp;:showVizHome=no&amp;:showTabs=y&amp;:display_count=y&amp;:display_static_image=y" data-load-viz-resize="" src="https://public.tableau.com/views/danger_bar_graph_pw/Page2?:embed=y&amp;:showVizHome=no&amp;:showTabs=y&amp;:display_count=y&amp;:display_static_image=y" style="height: 863px; width: 1004px;"></iframe>
+    <section id='appendix'>
+      <h2>Data Appendix</h2>
 
-      <iframe frameborder="0" id="viz_embedded_frame" ng-src="https://public.tableau.com/views/danger_bar_graph_old/p3?:embed=y&amp;:showVizHome=no&amp;:showTabs=y&amp;:display_count=y&amp;:display_static_image=y" data-load-viz-resize="" src="https://public.tableau.com/views/danger_bar_graph_old/p3?:embed=y&amp;:showVizHome=no&amp;:showTabs=y&amp;:display_count=y&amp;:display_static_image=y" style="height: 863px; width: 1004px;"></iframe>
+      <p> The purpose of this section is to provide additional details about the data and to add caveats against overinterpreting it (but also justifications that it has some validity).</p>
+
+      <p> The main Hubhacks dataset we used was from Runkeeper, and the initial task was to correlate it with the collision dataset. The Runkeeper data has been filtered to only include cycling trips, and only the portions of those trips that are within Boston, since the collision dataset is Boston-only (not greater Boston area). In addition, both datasets have been filtered so that they span the same time range (they overlap from May 2010 to December 2012).  </p>
+
+      <p>Within this time range, the Runkeeper data only spans 157 distinct biking trips (out of a total of 383 biking trips represented in the full data), but expanding those trips out into their full routes, we do have 34261 biker positions across 712 Boston streets, spanning a total of 2240 kilometers.</p>
+
+      <p>For the same time and space, we have data on 1340 biking collisions requiring EMS intervention across 430 Boston streets.</p>
+
+      <p> Both data sets are seasonal, and both vary across time of day and day of week: </p>
+
+      <iframe src="https://public.tableau.com/views/RunkeeperandCollisionTiming/Page3?:embed=y&amp;:showVizHome=no&amp;:display_static_image=y"></iframe>
+
+      <p> Notice that collisions are concentrated around commuting hours and on workdays, with more of the collisions happening in the afternoon, while biking data is a little more evenly distributed throughout the afternoon and day of week. This may reflect a systematic bias in the Runkeeper data towards casual biking, although there is undoubtedly still commuting data present in the set.  </p>
+
+      <p> Finally, we obtained data on bike lanes in Boston (along with approximately when they were added). These bike lanes span a total of XXX miles across YYY streets. One weakness of the bike lane dataset is that it only includes the year each segment of each bike lane was installed (and for lanes added before 2007, there's no data). That means, for collisions or Runkeeper trips that occur in the same year the bike lane was added, we don't know for sure whether that collision or trip point was on a bike lane. We assume yes for our visualizations, and even if we're wrong it shouldn't bias the results too much, but we don't know for sure.</p>
+
     </section>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
