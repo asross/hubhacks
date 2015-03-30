@@ -3,40 +3,57 @@ require_relative './helpers'
 route_summary = CSV.parse(File.read('./route_summary.csv'), headers: true)
 routes = CSV.parse(File.read('./geocoded_cycling_data.csv'), headers: true)
 collisions = CSV.parse(File.read('./bike_collision_geo.csv'), headers: true)
-bikepaths = CSV.parse(File.read('./bike-path-data.csv'), headers: true)
+bikepaths = CSV.parse(File.read('./joined-bikepaths.csv'), headers: true)
 
-headers = ['Data Type', 'Path Id', 'Step', 'Time', 'Street Name', 'Latitude', 'Longitude', 'Step Distance', 'Total Distance']
+headers = ['Data Type', 'Path Id', 'Step', 'Time', 'Street Name', 'Latitude', 'Longitude', 'Step Distance', 'Total Distance', 'Narrative']
 
 distance_lists = {}
 
 CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', headers: headers, write_headers: true) do |output|
 
-  bikepaths.each do |row|
-    next unless row['year'].to_i <= 2012
+  bikepaths.group_by { |row| row['path_id'] }.each do |path_id, rows|
+    segment_data = []
 
-    street_name = \
-      row['bike_path_name'].
-        sub(' Avenue', ' Ave').
-        sub(' Street', ' St').
-        sub(' Road', ' Rd').
-        sub(/^North/, 'N').
-        sub(' Boulevard', ' Blvd').
-        sub(' Square', ' Sq').
-        sub(' Shared-Use', '').
-        sub(' Bridge', ' Brg').
-        sub(' Highway', ' Hwy')
+    rows.each_with_index do |row, i|
+      next unless row['year'].to_i <= 2012
 
-    row_data = {
-      'Data Type'   => 'Bike Path',
-      'Path Id'     => row['path_id'],
-      'Step'        => row['step'],
-      'Time'        => "#{row['year']}-01-01T00:00",
-      'Street Name' => street_name,
-      'Latitude'    => row['latitude'],
-      'Longitude'   => row['longitude'],
-      'Total Distance' => row['bike_path_length']
-    }
-    output << row_data.values_at(*headers)
+      if i == 0
+        distance = 0
+      else
+        distance = distance_between(rows[i-1], row)
+      end
+
+      street_name = \
+        row['bike_path_name'].
+          sub(' Avenue', ' Ave').
+          sub(' Street', ' St').
+          sub(' Road', ' Rd').
+          sub(/^North/, 'N').
+          sub(' Boulevard', ' Blvd').
+          sub(' Square', ' Sq').
+          sub(' Shared-Use', '').
+          sub(' Bridge', ' Brg').
+          sub(' Highway', ' Hwy')
+
+      segment_data << {
+        'Data Type'   => 'Bike Path',
+        'Path Id'     => row['path_id'],
+        'Step'        => row['step'],
+        'Time'        => "#{row['year']}-01-01T00:00",
+        'Street Name' => street_name,
+        'Latitude'    => row['latitude'],
+        'Longitude'   => row['longitude'],
+        'Step Distance' => distance
+      }
+    end
+
+    calc_total_distance = segment_data.inject(0) { |acc, rd| acc + rd['Step Distance'] }
+    #puts "calculated total distance: #{calc_total_distance}"
+    #puts "orig total distance: #{rows.map{|row| row['bike_path_length'].to_f}.uniq.sum}"
+
+    segment_data.each do |row_data|
+      output << row_data.merge('Total Distance' => calc_total_distance).values_at(*headers)
+    end
   end
 
   base_collision_id = bikepaths.max_by {|p| p['path_id'].to_i }['path_id'].to_i + 1
@@ -55,7 +72,8 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
       'Time'        => time.strftime("%FT%R"),
       'Street Name' => row['Address'].to_s[/^(?:\d+\s)?([a-zA-Z0-9 ]+)/, 1],
       'Latitude'    => row["LAT"],
-      'Longitude'   => row["LON"]
+      'Longitude'   => row["LON"],
+      'Narrative'   => row["Narrative"]
     }
     output << row_data.values_at(*headers)
   end
