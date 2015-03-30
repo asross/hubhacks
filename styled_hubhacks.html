@@ -22,19 +22,15 @@
       body {
         font-family: 'Trebuchet MS';
         color: #555555;
-        width: 90%;
+        width: 88%;
         margin: 3em auto;
       }
       p {
         font-size: 1.25em;
         width: 82.5%;
       }
-
-      body section {
-        width: 70%;
-      }
       iframe {
-        width: 150%;
+        min-width: 100%;
         height: 860px;
         border: none;
         overflow: hidden;
@@ -48,23 +44,25 @@
       h4 {
         padding: 25px 0 5px 0;
       }
-      .vermonster-credits { float: right; }
+      .vermonster-credits { float: right; text-align: right; }
     </style>
   </head>
 
   <body>
     <div class='vermonster-credits'>
-      Built by Andrew, Paul, Beth, and Chris at <a class='vermonster-link' href='http://www.vermonster.com/'>Vermonster</a>
+      Built by Andrew, Paul, Beth, and Chris at <a class='vermonster-link' target="_blank" href='http://www.vermonster.com/'>Vermonster</a>
+      <br>
+      <a target="_blank" href='https://github.com/asross/hubhacks'>Hubhacks Repo</a>&nbsp;
     </div>
 
     <section id='intro'>
       <h1 id='title'>Bike Safety in Boston</h1>
 
-      <p>The <a href='http://www.bostonarearesearchinitiative.net/'>Boston Area Research Initiative</a> recently released a <a href='http://thedata.harvard.edu/dvn/dv/BARI/faces/study/StudyPage.xhtml?globalId=doi:10.7910/DVN/24713&studyListingIndex=0_b7dfc61cc86a188efbdb4ab5c2a9'>dataset of all bicycle crashes from 2009-2012</a>. There were several <a href="http://www.bostonmagazine.com/news/blog/2014/06/18/bike-crash-map-boston-data/">articles</a> <a href="http://www.boston.com/news/local/massachusetts/2014/06/19/cyclists-beware-this-new-map-shows-bike-crash-hotspots-across-boston/mGiHsi6gOIPLvgJjBw1yFJ/story.html">and</a> <a href="http://www.cityofboston.gov/news/uploads/16776_49_15_27.pdf">analyses</a> published, but the <a href="http://www.cityofboston.gov/news/uploads/16776_49_15_27.pdf">official City of Boston report</a> did not consider "impact adding bike lanes, shared lanes or cycletracks had on cyclist collisions", and "recommended that future analysis begin to look" into it.<p>
+      <p>The <a target="_blank" href='http://www.bostonarearesearchinitiative.net/'>Boston Area Research Initiative</a> recently released a <a target="_blank" href='http://thedata.harvard.edu/dvn/dv/BARI/faces/study/StudyPage.xhtml?globalId=doi:10.7910/DVN/24713&studyListingIndex=0_b7dfc61cc86a188efbdb4ab5c2a9'>dataset of all bicycle crashes from 2009-2012</a>. There were several <a target="_blank" href="http://www.bostonmagazine.com/news/blog/2014/06/18/bike-crash-map-boston-data/">articles</a> <a target="_blank" href="http://www.boston.com/news/local/massachusetts/2014/06/19/cyclists-beware-this-new-map-shows-bike-crash-hotspots-across-boston/mGiHsi6gOIPLvgJjBw1yFJ/story.html">and</a> <a target="_blank" href="http://www.cityofboston.gov/news/uploads/16776_49_15_27.pdf">analyses</a> published, but the <a target="_blank" href="http://www.cityofboston.gov/news/uploads/16776_49_15_27.pdf">official City of Boston report</a> did not consider "impact adding bike lanes, shared lanes or cycletracks had on cyclist collisions", and "recommended that future analysis begin to look" into it.<p>
 
       <p>One other factor the City of Boston report didn't consider in depth was the total traffic through an area. The number of collisions might be large along a particular street or intersection, but is that because the street is dangerous, or because there is simply a lot of traffic?<p>
 
-      <p>We combined the <a href='http://www.cityofboston.gov/bikes/statistics.asp'>BARI dataset</a> with <a href="">data released for Hubhacks</a> by <a href='http://runkeeper.com'>Runkeeper</a>, a smartphone application that tracks your runs and bicycle rides, to try to get a sense of the likelihood of collisions adjusted for traffic. And we used <a href='http://maps.cityofboston.gov/ArcGIS/rest/services/BaseServices/Bike_network/MapServer'>City of Boston bike lane data</a> to determine how many of those collisions and rides occurred on bike lanes, to get a sense of how much they help.</p>
+      <p>We combined the <a target="_blank" href='http://www.cityofboston.gov/bikes/statistics.asp'>BARI dataset</a> with <a target="_blank" href="">data released for Hubhacks</a> by <a target="_blank" href='http://runkeeper.com'>Runkeeper</a>, a smartphone application that tracks your runs and bicycle rides, to try to get a sense of the likelihood of collisions adjusted for traffic. And we used <a target="_blank" href='http://maps.cityofboston.gov/ArcGIS/rest/services/BaseServices/Bike_network/MapServer'>City of Boston bike lane data</a> to determine how many of those collisions and rides occurred on bike lanes, to get a sense of how much they help.</p>
     </section>
 
     <section id='map'>
@@ -82,7 +80,7 @@
 
       <h2>Conclusions we can draw</h2>
       <h3>You're safer in a bike lane</h3>
-      <p>Across all streets with sufficient data, collision rates are lower in bike lanes, which can be visualized by the difference in area under the curve on the red collisions/distance graph.<p>
+      <p>Across the board, collision rates are lower in bike lanes, which can be visualized by the difference in area under the curve on the orange collisions/distance graph. On average, combining data for all streets, we found that collisions were 132% likelier to occur off bike lanes than on them.<p>
       <h3>Beacon Street is really safe</h3>
       <p>Both on and off bike lanes (and especially off), it has the lowest rate of collisions per biker. However, it's possible we are missing bike lane data, which would explain its high safety. Beacon Street has a bike lane now according to Google maps, but according to the City of Boston dataset, it didn't as of 2013. Regardless, the data indicates that it's one of the safest streets.</p>
       <h3>The street with the most collisions isn't particularly dangerous</h3>
