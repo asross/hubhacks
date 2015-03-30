@@ -22,8 +22,8 @@ Our project utilizes:
     * [All biking data coordinates with street names]()
 - The [Boston Area Research Initiative](http://www.bostonarearesearchinitiative.net/data-library.php?dvn_subpage=/faces/study/StudyPage.xhtml?globalId=doi:10.7910/DVN/24713&studyListingIndex=0_793b56b69639262a4ff832a1af7c)'s Bicycle Collision dataset (between 2009 and 2012)
     * [Geocoded](https://s3-us-west-2.amazonaws.com/hubhacks/bike_collision_geo.csv)
-- (Insert source here) dataset on bike lanes and when they were added
-    * [Link to dataset]()
+- Boston Bike Network (http://maps.cityofboston.gov/bikenetwork/) dataset on bike lanes and when they were added or plan to be added (from 2009)
+    * [Existing Bike Network](https://github.com/asross/hubhacks/blob/master/Existing_Bike_Network.json)
 
 We are looking for insight into:
 
