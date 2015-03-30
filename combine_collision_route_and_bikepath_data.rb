@@ -1,11 +1,15 @@
 require 'pry'
 require 'csv'
+require_relative './helpers'
 
+route_summary = CSV.parse(File.read('./route_summary.csv'), headers: true)
 routes = CSV.parse(File.read('./geocoded_cycling_data.csv'), headers: true)
 collisions = CSV.parse(File.read('./bike_collision_geo.csv'), headers: true)
 bikepaths = CSV.parse(File.read('./bike-path-data.csv'), headers: true)
 
-headers = ['Data Type', 'Path Id', 'Step', 'Year', 'Month', 'Hour', 'Street Name', 'Latitude', 'Longitude']
+headers = ['Data Type', 'Path Id', 'Step', 'Time', 'Street Name', 'Latitude', 'Longitude', 'Step Distance', 'Total Distance']
+
+distance_lists = {}
 
 CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', headers: headers, write_headers: true) do |output|
 
@@ -28,10 +32,11 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
       'Data Type'   => 'Bike Path',
       'Path Id'     => row['path_id'],
       'Step'        => row['step'],
-      'Year'        => row['year'],
+      'Time'        => "#{row['year']}-01-01T00:00",
       'Street Name' => street_name,
       'Latitude'    => row['latitude'],
-      'Longitude'   => row['longitude']
+      'Longitude'   => row['longitude'],
+      'Total Distance' => row['bike_path_length']
     }
     output << row_data.values_at(*headers)
   end
@@ -49,9 +54,7 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
       'Data Type'   => 'Collision',
       'Path Id'     => base_collision_id + i,
       'Step'        => '1',
-      'Year'        => time.year,
-      'Month'       => time.month,
-      'Hour'        => time.hour,
+      'Time'        => time.strftime("%FT%R"),
       'Street Name' => row['Address'].to_s[/^(?:\d+\s)?([a-zA-Z0-9 ]+)/, 1],
       'Latitude'    => row["LAT"],
       'Longitude'   => row["LON"]
@@ -63,8 +66,17 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
 
   base_route_id = base_collision_id + collisions.size + 1
 
-  routes.select { |row| Time.parse(row['Datetime']).year <= 2012 }.group_by { |row| row['Route ID'] }.each_with_index do |(route_id, rows), route_no|
+  total_miles_by_route_id = Hash[route_summary.map{|rs| [rs['routeid'], rs['distance_m'].to_f*0.000621371] }]
+
+  routes.
+    select { |row| Time.parse(row['Datetime']).year <= 2012 }.
+    group_by { |row| row['Route ID'] }.
+    each_with_index do |(route_id, rows), route_no|
+
     route_data = []
+
+    total_distance = total_miles_by_route_id[route_id]
+    distances = []
 
     rows.each_with_index do |row, i|
       utc_time = Time.parse(row['Datetime'])
@@ -72,19 +84,32 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
       street_name = row['Address'].to_s[/^(?:\d+\s)?([a-zA-Z0-9 ]+), ([a-zA-Z]+)/, 1]
       city_name = row['Address'].to_s[/^(?:\d+\s)?([a-zA-Z0-9 ]+), ([a-zA-Z]+)/, 2]
 
+      if i == rows.length-1
+        # this is a bit of a hack, but it should be ok. we can't figure out what
+        # the last leg length is so use the total distance to calculate what it ought to be --
+        # unless it's way too big. our `distance_between` method throws out a tiny bit of
+        # length on each leg.
+        distance = [distances.reject{|d| d==0}.mean, total_distance - distances.sum].min
+      else
+        distance = distance_between(row, rows[i+1])
+      end
+
       route_data << {
         'Data Type' => 'Runkeeper Route',
         'Path Id' => base_route_id + route_no,
         'Step' => i + 1,
-        'Year' => est_time.year,
-        'Month' => est_time.month,
-        'Hour'  => est_time.hour,
+        'Time' => est_time.strftime("%FT%R"),
         'Street Name' => street_name,
         'City Name' => city_name,
         'Latitude' => row['Latitude'],
-        'Longitude' => row['Longitude']
+        'Longitude' => row['Longitude'],
+        'Step Distance' => distance
       }
+
+      distances << distance
     end
+
+    distance_lists[route_id] = distances
 
     # remove the beginning and end if they are not in Boston
     unless city_whitelist.include?(route_data.map{|r| r['City Name']}.compact.first)
@@ -99,8 +124,10 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
       end
     end
 
+    calc_total_distance = route_data.inject(0) { |acc, rd| acc + rd['Step Distance'] }
+
     route_data.each do |row_data|
-      output << row_data.values_at(*headers)
+      output << row_data.merge('Total Distance' => calc_total_distance).values_at(*headers)
     end
   end
 end
