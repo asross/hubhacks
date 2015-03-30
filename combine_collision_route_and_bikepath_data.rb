@@ -41,7 +41,7 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
       end
 
       street_name = \
-        row['bike_path_name'].
+        row['name'].to_s.
           sub(' Avenue', ' Ave').
           sub(' Street', ' St').
           sub(' Road', ' Rd').
