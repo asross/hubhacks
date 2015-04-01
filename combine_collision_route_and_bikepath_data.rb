@@ -99,16 +99,17 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
     output << row_data.values_at(*headers)
   end
 
-  city_whitelist = %w(Boston Brookline Brighton Jamaica)
+  city_whitelist = %w(Boston)
 
   base_route_id = base_collision_id + collisions.size + 1
 
   total_miles_by_route_id = Hash[route_summary.map{|rs| [rs['routeid'], rs['distance_m'].to_f*0.000621371] }]
 
+  route_no = 0
   routes.
     select { |row| Time.parse(row['Datetime']).year <= 2012 }.
     group_by { |row| row['Route ID'] }.
-    each_with_index do |(route_id, rows), route_no|
+    each do |route_id, rows|
 
     route_data = []
 
@@ -133,8 +134,6 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
 
       route_datum = {
         'Data Type' => 'Runkeeper Route',
-        'Path Id' => base_route_id + route_no,
-        'Step' => i + 1,
         'Time' => est_time.strftime("%FT%R"),
         'Street Name' => street_name,
         'City Name' => city_name,
@@ -150,23 +149,30 @@ CSV.open('./boston-bike-trips-crashes-and-bike-paths-may2010-dec2012.csv', 'w', 
 
     distance_lists[route_id] = distances
 
-    # remove the beginning and end if they are not in Boston
-    unless city_whitelist.include?(route_data.map{|r| r['City Name']}.compact.first)
-      while route_data.length > 0 && !city_whitelist.include?(route_data[0]['City Name'])
-        route_data.shift
+    route_segments = []
+    current_segment = []
+    while route_data.length > 0
+      point = route_data.shift
+      if city_whitelist.include?(point['City Name'])
+        current_segment << point
+      else
+        route_segments << current_segment unless current_segment.length == 0
+        current_segment = []
       end
     end
+    route_segments << current_segment unless current_segment.length == 0
 
-    unless city_whitelist.include?(route_data.map{|r| r['City Name']}.compact.last)
-      while route_data.length > 0 && !city_whitelist.include?(route_data[-1]['City Name'])
-        route_data.pop
+    route_segments.each do |segment|
+      calc_total_distance = segment.inject(0) { |acc, rd| acc + rd['Step Distance'] }
+
+      segment.each_with_index do |row_data, i|
+        output << row_data.merge(
+          'Total Distance' => calc_total_distance,
+          'Path Id' => base_route_id + route_no,
+          'Step' => i + 1
+        ).values_at(*headers)
       end
-    end
-
-    calc_total_distance = route_data.inject(0) { |acc, rd| acc + rd['Step Distance'] }
-
-    route_data.each do |row_data|
-      output << row_data.merge('Total Distance' => calc_total_distance).values_at(*headers)
+      route_no += 1
     end
   end
 end
